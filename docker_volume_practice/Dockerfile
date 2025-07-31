@@ -1,14 +1,9 @@
-# Use a base image with Java runtime
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy the built JAR from local to container
-COPY target/*.jar app.jar
+COPY target/docker_volume_practice-0.0.1-SNAPSHOT.jar docker_volume_practice-0.0.1-SNAPSHOT.jar
 
-# Expose the port your app runs on (usually 8080)
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "docker_volume_practice-0.0.1-SNAPSHOT.jar"]
